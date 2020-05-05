@@ -6,10 +6,24 @@
         
         <div class="row">
 
-            <div class="col s12 m6 l4">
+            <div class="col s12 m12 l4">
                 <div class="card-panel">
                     <h6 class=bold >Total Budget</h6>
-                    <h1 class=bold >$3000</h1>
+                    <h1 class=bold >${{project.budget}}</h1>
+                </div>
+            </div>
+
+            <div class="col s12 m6 l4">
+                <div class="card-panel">
+                    <h6 class=bold >Budget Left</h6>
+                    <h1 class=bold >${{budget_left}}</h1>
+                </div>
+            </div>
+
+            <div class="col s12 m6 l4">
+                <div class="card-panel">
+                    <h6 class=bold >Total Transactions</h6>
+                    <h1 class=bold >${{total_transactions}}</h1>
                 </div>
             </div>
 
@@ -26,25 +40,27 @@
         </div>
 
         <ul class="z-depth-1">
+
+            {% for expense in expense_list %}
             <li>
                 <div class="card-panel z-depth-0 expense">
                     <div class="row">
 
                         <div class="col l6">
                             <span class="title bold ">
-                                Page Design
+                                {{expense.title}}
                             </span>
                         </div>
 
                         <div class="col l3">
                             <span class="title">
-                                $249
+                                ${{expense.amount}}
                             </span>
                         </div>
 
                         <div class="col l1">
                             <span class="title">
-                                Development
+                                {{expense.category.name}}
                             </span>
                         </div>
 
@@ -57,98 +73,7 @@
                 </div>
             </li>
 
-            <li>
-                <div class="card-panel z-depth-0 expense">
-                    <div class="row">
-
-                        <div class="col l6">
-                            <span class="title bold ">
-                                Page Design
-                            </span>
-                        </div>
-
-                        <div class="col l3">
-                            <span class="title">
-                                $249
-                            </span>
-                        </div>
-
-                        <div class="col l1">
-                            <span class="title">
-                                Development
-                            </span>
-                        </div>
-
-                        <a href="">
-                            <i class="material-icons red-text right">close</i>
-                        </a>
-
-
-                    </div>
-                </div>
-            </li>
-
-            <li>
-                <div class="card-panel z-depth-0 expense">
-                    <div class="row">
-
-                        <div class="col l6">
-                            <span class="title bold ">
-                                Page Design
-                            </span>
-                        </div>
-
-                        <div class="col l3">
-                            <span class="title">
-                                $249
-                            </span>
-                        </div>
-
-                        <div class="col l1">
-                            <span class="title">
-                                Development
-                            </span>
-                        </div>
-
-                        <a href="">
-                            <i class="material-icons red-text right">close</i>
-                        </a>
-
-
-                    </div>
-                </div>
-            </li>
-
-            <li>
-                <div class="card-panel z-depth-0 expense">
-                    <div class="row">
-
-                        <div class="col l6">
-                            <span class="title bold ">
-                                Page Design
-                            </span>
-                        </div>
-
-                        <div class="col l3">
-                            <span class="title">
-                                $249
-                            </span>
-                        </div>
-
-                        <div class="col l1">
-                            <span class="title">
-                                Development
-                            </span>
-                        </div>
-
-                        <a href="">
-                            <i class="material-icons red-text right">close</i>
-                        </a>
-
-
-                    </div>
-                </div>
-            </li>
+            {% endfor %}
 
         </ul>
     </section>
